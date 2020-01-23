@@ -21,11 +21,8 @@ def cycleUp():
 
     currentIndex -= 1
 
-    if lightParty is True:
-        if currentIndex < 1:
-            currentIndex = 4
-        elif currentIndex > 4:
-            currentIndex = 4
+    if lightParty is True and (currentIndex < 1 or currentIndex > 4):
+        currentIndex = 4
     elif lightParty is False and currentIndex < 1:
         currentIndex = 8
 
@@ -40,10 +37,9 @@ def cycleDown():
     global lightParty
 
     currentIndex += 1
-    if lightParty is True:
-        if currentIndex > 4:
-            currentIndex = 1
-    if lightParty is False:
+    if lightParty is True and currentIndex > 4:
+        currentIndex = 1
+    elif lightParty is False:
         if currentIndex < 1:
             currentIndex = 8
         elif currentIndex > 8:
